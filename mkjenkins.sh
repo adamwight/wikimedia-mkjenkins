@@ -21,6 +21,11 @@ echo --- Downloading and starting Jenkins in the background.
 (wget http://mirrors.jenkins-ci.org/war/latest/jenkins.war -o jenkinswget.log --progress=dot:mega && java -jar jenkins.war > jenkins.log 2>&1) &
 
 echo
+echo --- Downloading Jenkins git plugin
+mkdir plugins
+wget http://updates.jenkins-ci.org/latest/git.hpi -o plugins/git.hpi
+
+echo
 echo --- Cloning and installing Jenkins job builder...
 git clone https://gerrit.wikimedia.org/r/p/integration/jenkins-job-builder.git 
 cd jenkins-job-builder
