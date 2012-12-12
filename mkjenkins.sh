@@ -45,6 +45,48 @@ url=http://localhost:8080
 EOF
 
 echo
+echo --- Patching Zuul paths
+cd config
+cat << EOF | patch -p1
+diff --git a/defaults.yaml b/defaults.yaml
+index c83e460..0bcdb8b 100644
+--- a/defaults.yaml
++++ b/defaults.yaml
+@@ -23,7 +23,7 @@
+
+     scm:
+      - git:
+-        url: '/var/lib/zuul/git/{gerrit-name}'
++        url: 'https://gerrit.wikimedia.org/r/p/{gerrit-name}.git'
+         branches:
+          - '$ZUUL_BRANCH'
+         refspec: '$ZUUL_REF'
+@@ -47,7 +47,7 @@
+
+     scm:
+      - git:
+-        url: '/var/lib/zuul/git/mediawiki/extensions/{ext-name}'
++        url: 'https://gerrit.wikimedia.org/r/p/mediawiki/extensions/{ext-name}.git'
+         basedir: 'extensions/{ext-name}'
+         branches:
+          - '$ZUUL_BRANCH'
+diff --git a/macro-scm.yaml b/macro-scm.yaml
+index c7da6cd..aacb912 100644
+--- a/macro-scm.yaml
++++ b/macro-scm.yaml
+@@ -8,7 +8,7 @@
+     name: git-mwcore-nosubmodules
+     scm:
+      - git:
+-        url: '/var/lib/zuul/git/mediawiki/core'
++        url: 'https://gerrit.wikimedia.org/r/p/mediawiki/core.git'
+         branches:
+          - '$ZUUL_BRANCH'
+         refspec: '$ZUUL_REF'
+EOF
+cd ..
+
+echo
 echo --- Symlinking /var/lib/jenkins
 cd ..
 mkdir -p var/lib/jenkins
