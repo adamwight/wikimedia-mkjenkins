@@ -4,6 +4,13 @@ echo --- Initializing Jenkins install
 echo
 
 cd $HOME 
+
+if [ -e .jenkins ]
+then
+	echo Please remove ~/.jenkins or run java -jar jenkins.war instead
+	exit
+fi
+
 echo
 echo --- Cloning jenkins.git...
 git clone https://gerrit.wikimedia.org/r/p/integration/jenkins.git .jenkins
