@@ -1,0 +1,8 @@
+mkjenkins is a script to quickly get a Wikimedia Foundation Jenkins mirror
+running. It downloads Jenkins, Jenkins job builder and relevant configuration,
+builds JJB jobs and pushes them to Jenkins.
+
+In addition, it prepares the directory structure for some assumptions the
+current jobs make - such as /var/lib/jenkins being available and writable.
+It is symlinked to $HOME/.jenkins/var/lib/jenkins, but this means you need
+local root (or you can't make the symlink, and not all jobs will function).
