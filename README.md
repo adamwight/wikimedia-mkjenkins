@@ -14,9 +14,9 @@ How to run a test from a changeset in Gerrit
 --------------------------------------------
 Example: https://gerrit.wikimedia.org/r/#/c/38114/
 
-1) go to http://localhost:8080
-2) go to job 'mwext-LabeledSectionTransclusion-extensiontests'
-3) click 'Build now'
-4) at ZUUL_BRANCH, enter the SHA1 hash ( 750fd5d72e4671bd9e2151300cefaf738b322990 )
-5) at ZUUL_REF, enter the remote ref ( refs/changes/14/38114/1 )
-6) click 'Build'
+1. go to http://localhost:8080/
+2. go to job 'mwext-LabeledSectionTransclusion-extensiontests'
+3. click 'Build now'
+4. at ZUUL_BRANCH, enter the SHA1 hash ( 750fd5d72e4671bd9e2151300cefaf738b322990 )
+5. at ZUUL_REF, enter the remote ref ( refs/changes/14/38114/1 )
+6. click 'Build'
