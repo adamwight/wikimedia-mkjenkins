@@ -20,3 +20,11 @@ Example: https://gerrit.wikimedia.org/r/#/c/38114/
 4. at ZUUL_BRANCH, enter the SHA1 hash ( 750fd5d72e4671bd9e2151300cefaf738b322990 )
 5. at ZUUL_REF, enter the remote ref ( refs/changes/14/38114/1 )
 6. click 'Build'
+
+Alternatively:
+```
+curl -F json='{"parameter": [
+{"name": "ZUUL_BRANCH", "value": "750fd5d72e4671bd9e2151300cefaf738b322990"},
+{"name": "ZUUL_REF", "value": "refs/changes/14/38114/1"}]}' \
+http://localhost:8080/job/mwext-LabeledSectionTransclusion-testextensions/build    
+```
