@@ -53,39 +53,39 @@ echo --- Patching Zuul paths
 cd config
 cat << EOF | patch -p1
 diff --git a/defaults.yaml b/defaults.yaml
-index c83e460..0bcdb8b 100644
+index 79654d6..94fc2c9 100644
 --- a/defaults.yaml
 +++ b/defaults.yaml
-@@ -23,7 +23,7 @@
+@@ -24,7 +24,7 @@
 
      scm:
       - git:
--        url: '/var/lib/zuul/git/{gerrit-name}'
+-        url: '/srv/ssd/zuul/git/{gerrit-name}'
 +        url: 'https://gerrit.wikimedia.org/r/p/{gerrit-name}.git'
          branches:
-          - '$ZUUL_BRANCH'
+          - '$ZUUL_COMMIT'
          refspec: '$ZUUL_REF'
-@@ -47,7 +47,7 @@
+@@ -48,7 +48,7 @@
 
      scm:
       - git:
--        url: '/var/lib/zuul/git/mediawiki/extensions/{ext-name}'
+-        url: '/srv/ssd/zuul/git/mediawiki/extensions/{ext-name}'
 +        url: 'https://gerrit.wikimedia.org/r/p/mediawiki/extensions/{ext-name}.git'
          basedir: 'extensions/{ext-name}'
          branches:
-          - '$ZUUL_BRANCH'
+          - '$ZUUL_COMMIT'
 diff --git a/macro-scm.yaml b/macro-scm.yaml
-index c7da6cd..aacb912 100644
+index 97a64db..81a6837 100644
 --- a/macro-scm.yaml
 +++ b/macro-scm.yaml
 @@ -8,7 +8,7 @@
      name: git-mwcore-nosubmodules
      scm:
       - git:
--        url: '/var/lib/zuul/git/mediawiki/core'
+-        url: '/srv/ssd/zuul/git/mediawiki/core'
 +        url: 'https://gerrit.wikimedia.org/r/p/mediawiki/core.git'
          branches:
-          - '$ZUUL_BRANCH'
+          - '$ZUUL_COMMIT'
          refspec: '$ZUUL_REF'
 EOF
 cd ..
