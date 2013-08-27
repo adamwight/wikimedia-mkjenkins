@@ -21,7 +21,7 @@ echo --- Downloading and starting Jenkins in the background.
 (wget http://mirrors.jenkins-ci.org/war/latest/jenkins.war -o jenkinswget.log --progress=dot:mega && java -jar jenkins.war > jenkins.log 2>&1) &
 
 mkdir plugins
-for i in git ansicolor notification timestamper build-timeout xunit
+for i in git git-client ansicolor notification timestamper build-timeout xunit
 do
     echo
     echo --- Downloading Jenkins plugin \'$i\'
